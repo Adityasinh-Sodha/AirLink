@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirLink</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        
+
+</head>
+<body>
+    <h1>AirLink</h1>
+
+    <div class="subtitle">Open AirLink on other devices to send files</div>
+
+    <div class="device-list">
+        <div id="devices"></div>
+    </div>
+
+    <div id="currentDevice"></div>
+    <div class="signal-animation"></div>
+
+    <input type="file" id="fileInput" style="display: none;" onchange="sendFile(this)" />
+
+    <script src="{{ url_for('static', filename='socket.io.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
