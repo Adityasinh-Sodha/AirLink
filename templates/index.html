@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AirLink</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-        <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/x-icon">
-
+        <link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" type="image/x-icon">
 
 </head>
 <body>
@@ -22,7 +21,7 @@
     <div class="signal-animation"></div>
 
     <input type="file" id="fileInput" style="display: none;" onchange="sendFile(this)" />
-
+    <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="AirLink Logo" class="logo">
     <script src="{{ url_for('static', filename='socket.io.min.js') }}"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
