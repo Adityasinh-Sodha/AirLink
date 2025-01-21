@@ -58,7 +58,7 @@ function createCircle() {
     circle.classList.add('signal-animation');
     document.body.appendChild(circle);
 
-    circle.style.top = '115%';
+    circle.style.top = '70%';
     circle.style.left = '43%';
 }
 
