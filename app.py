@@ -44,7 +44,7 @@ def handle_file_send(data):
 @socketio.on('file_receive')
 def handle_file_receive(data):
     print("File data received:", data['file'])
-
+    
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
-    socketio.run(app)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
