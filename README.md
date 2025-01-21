@@ -49,6 +49,9 @@ AirLink/
 │   ├── styles.css
 │   ├── script.js
 │   ├── socket.io.min.js
+│   ├── assets/
+│       ├── favicon.png
+│       ├── logo.png
 ├── templates/
 │   ├── index.html
 ├── app.py
