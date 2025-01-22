@@ -46,5 +46,8 @@ def handle_file_receive(data):
     print("File data received:", data['file'])
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
-    socketio.run(app)
+    import eventlet
+    import eventlet.wsgi
+
+    port = int(os.getenv('PORT', 5000))
+    socketio.run(app, host='0.0.0.0', port=port, debug=True)
