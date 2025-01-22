@@ -11,14 +11,6 @@ devices = {}
 hostname = socket.gethostname()
 local_ip = socket.gethostbyname(hostname)
 
-# Function to forward a port
-def forward_port(port, internal_port):
-    try:
-        os.system(f"sudo iptables -t nat -A PREROUTING -p tcp --dport {port} -j REDIRECT --to-port {internal_port}")
-        print(f"Port {port} forwarded to internal port {internal_port} successfully!")
-    except Exception as e:
-        print(f"Error forwarding port {port}: {e}")
-
 @app.route('/')
 def index():
     return render_template('index.html', local_ip=local_ip)
@@ -54,8 +46,5 @@ def handle_file_receive(data):
     print("File data received:", data['file'])
 
 if __name__ == '__main__':
-    forwarded_port = 8080  # Change this to your desired external port
-    internal_port = 5000   # Flask app internal port
-    forward_port(forwarded_port, internal_port)  # Forward external port to internal port
-    app.run(host='0.0.0.0', port=internal_port, debug=True)
-    socketio.run(app, port=internal_port)
+    app.run(host='0.0.0.0', port=5000, debug=True)
+    socketio.run(app)
