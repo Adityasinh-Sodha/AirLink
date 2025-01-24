@@ -19,7 +19,9 @@
 
     <div id="currentDevice"></div>
     <div class="signal-animation"></div>
-
+    <div id="progressContainer" style="display: none;">
+    <div id="progressBar"></div>
+    </div>
     <input type="file" id="fileInput" style="display: none;" onchange="sendFile(this)" />
     <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="AirLink Logo" class="logo">
     <script src="{{ url_for('static', filename='socket.io.min.js') }}"></script>
