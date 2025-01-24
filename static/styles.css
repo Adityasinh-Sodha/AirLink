@@ -90,3 +90,25 @@ h1 {
     margin-top: 340px;
     z-index: 5000;
 }
+
+
+#progressContainer {
+    width: 5%;
+    height: 20px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+#progressBar {
+    height: 100%;
+    width: 0;
+    background: #4caf50;
+    transition: width 0.1s;
+}
+
