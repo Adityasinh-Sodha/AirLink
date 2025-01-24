@@ -92,18 +92,6 @@ socket.on('file_receive', (data) => {
     }
 });
 
-
-function createCircle() {
-    const circle = document.createElement('div');
-    circle.classList.add('signal-animation');
-    document.body.appendChild(circle);
-
-    circle.style.top = '70%';
-    circle.style.left = '43%';
-}
-
-setInterval(createCircle, 2000);
-
 function showProgressBar() {
     const container = document.getElementById('progressContainer');
     const bar = document.getElementById('progressBar');
