@@ -44,30 +44,33 @@ h1 {
     top: 230px;
 }
 
+/*
 .subtitle {
     color: #555; 
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     position: absolute;
     top: 705px;
 }
+*/
 
 .device-list {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    top: 0px;
+    top: -20px;
 }
 
-
+/*
 #currentDevice {
     position: absolute;
     bottom: 50px;
     text-align: center;
     font-weight: bold;
 }
+*/
 
 .logo {
     display: block;
@@ -104,10 +107,10 @@ h1 {
 .device {
     margin: 10px;
     padding: 10px;
-    background: #1d35ad; 
+    background: #1d35ad;
     border: 2px solid #1d35ad; 
-    color: #ffffff;
-    font-weight: bold;
+    color: #ffffff; 
+    font-weight: bold; 
     border-radius: 12px; 
     text-align: center; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
@@ -117,6 +120,20 @@ h1 {
 .device:hover {
     background-color: #e8f5e9; 
     transform: scale(1.05); 
-    cursor: pointer;
+    cursor: pointer; 
     color: #333;
+}
+
+.styled-device-name {
+    color: #1d35ad; 
+    font-weight: bold; 
+    text-transform: capitalize;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.name-container {
+    position: fixed; 
+    bottom: 25px; 
+    text-align: center;
+    font-size: 1.2rem;
 }
