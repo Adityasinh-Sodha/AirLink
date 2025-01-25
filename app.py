@@ -5,6 +5,7 @@ import os
 import socket
 from flask import Flask, render_template, request, jsonify
 from flask_socketio import SocketIO, emit
+import requests
 
 app = Flask(__name__)
 socketio = SocketIO(app)
@@ -18,21 +19,32 @@ local_ip = socket.gethostbyname(hostname)
 def index():
     return render_template('index.html', local_ip=local_ip)
 
+def fetch_random_name():
+    try:
+        # Use locale 'us' for English names
+        response = requests.get("https://randomuser.me/api/?nat=us")
+        if response.status_code == 200:
+            data = response.json()
+            first_name = data['results'][0]['name']['first']
+            last_name = data['results'][0]['name']['last']
+            return f"{first_name} {last_name}"
+        else:
+            # Fallback to a default name if API fails
+            return "Guest User"
+    except Exception as e:
+        print(f"Error fetching random name: {e}")
+        return "Guest User"
+
 @socketio.on('connect')
 def handle_connect():
-    with app.app_context():  
-        device_name = request.headers.get('User-Agent')
-        if "Android" in device_name:
-            device_name = "Android Device"
-        else:
-            device_name = hostname 
-
-        devices[request.sid] = {'ip': local_ip, 'name': device_name}
-        emit('device_list', {'devices': [device['name'] for device in devices.values()]}, broadcast=True)
+    random_name = fetch_random_name()  # Fetch a random name from the API
+    devices[request.sid] = {'ip': local_ip, 'name': random_name}
+    emit('device_list', {'devices': [device['name'] for device in devices.values()]}, broadcast=True)
+    emit('your_name', {'name': random_name}, room=request.sid)
 
 @socketio.on('disconnect')
 def handle_disconnect():
-    with app.app_context(): 
+    with app.app_context():  # Ensure context is active
         if request.sid in devices:
             del devices[request.sid]
         emit('device_list', {'devices': [device['name'] for device in devices.values()]}, broadcast=True)
