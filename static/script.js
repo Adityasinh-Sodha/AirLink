@@ -1,5 +1,6 @@
 const socket = io.connect();
 let selectedDevice = null;
+let receivedFile = []; // Store file chunks as an array of ArrayBuffers
 
 // Update the device list
 socket.on('device_list', (data) => {
@@ -12,7 +13,6 @@ socket.on('device_list', (data) => {
 
         deviceDiv.onclick = () => {
             selectedDevice = device;
-            //document.getElementById('currentDevice').textContent = `Selected Device: ${device}`;
             document.getElementById('fileInput').click();
         };
 
@@ -46,6 +46,8 @@ function sendFile(inputElement) {
             const end = Math.min(start + chunkSize, file.size);
             const chunk = fileData.slice(start, end);
 
+            console.log(`Sending chunk ${currentChunk + 1} of ${totalChunks}...`);
+
             socket.emit('file_send', {
                 target: selectedDevice,
                 chunk: chunk,
@@ -67,22 +69,25 @@ function sendFile(inputElement) {
         sendChunk();
     };
 
-    reader.readAsDataURL(file);
+    // Change to readAsArrayBuffer for better chunking
+    reader.readAsArrayBuffer(file);
 }
-
 
 socket.on('file_receive', (data) => {
     if (data.chunkIndex === 0) {
         showProgressBar();
-        receivedFile = ''; // Initialize received data
+        receivedFile = []; // Initialize the array for received chunks
     }
 
-    receivedFile += data.chunk;
+    // Push each chunk as an ArrayBuffer
+    receivedFile.push(data.chunk);
     updateProgressBar((data.chunkIndex / data.totalChunks) * 100);
 
     if (data.chunkIndex + 1 === data.totalChunks) {
+        // Combine all chunks and create a Blob
+        const blob = new Blob(receivedFile);
         const link = document.createElement('a');
-        link.href = receivedFile;
+        link.href = URL.createObjectURL(blob);
         link.download = data.name || 'received_file';
         link.style.display = 'none';
 
@@ -116,4 +121,3 @@ socket.on('your_name', (data) => {
     nameDiv.classList.add('name-container');
     document.body.appendChild(nameDiv);
 });
-
