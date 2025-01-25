@@ -1,6 +1,4 @@
-Flask==2.2.5
-Flask-SocketIO==4.3.1
-python-socketio==4.6.1
+Flask
+Flask-SocketIO
 eventlet
 gevent
-werkzeug==2.2.3
