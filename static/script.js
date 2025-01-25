@@ -12,7 +12,7 @@ socket.on('device_list', (data) => {
 
         deviceDiv.onclick = () => {
             selectedDevice = device;
-            document.getElementById('currentDevice').textContent = `Selected Device: ${device}`;
+            //document.getElementById('currentDevice').textContent = `Selected Device: ${device}`;
             document.getElementById('fileInput').click();
         };
 
@@ -112,9 +112,8 @@ function hideProgressBar() {
 
 socket.on('your_name', (data) => {
     const nameDiv = document.createElement('div');
-    nameDiv.textContent = `You are known as: ${data.name}`;
-    nameDiv.style.textAlign = 'center';
-    nameDiv.style.fontSize = '1.2rem';
-    nameDiv.style.marginTop = '20px';
+    nameDiv.innerHTML = `You are known as: <span class="styled-device-name">${data.name}</span>`;
+    nameDiv.classList.add('name-container');
     document.body.appendChild(nameDiv);
 });
+
