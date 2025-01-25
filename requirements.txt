@@ -1,5 +1,5 @@
-flask==2.2.5
-flask-socketio==4.3.1
+Flask==2.2.5
+Flask-SocketIO==4.3.1
 python-socketio==4.6.1
 eventlet
 gevent
