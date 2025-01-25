@@ -1,9 +1,10 @@
 const socket = io.connect();
 let selectedDevice = null;
 
+// Update the device list
 socket.on('device_list', (data) => {
     const deviceListDiv = document.getElementById('devices');
-    deviceListDiv.innerHTML = ''; 
+    deviceListDiv.innerHTML = ''; // Clear existing devices
     data.devices.forEach((device) => {
         const deviceDiv = document.createElement('div');
         deviceDiv.classList.add('device');
@@ -31,7 +32,7 @@ function sendFile(inputElement) {
 
     const file = inputElement.files[0];
     const reader = new FileReader();
-    const chunkSize = 64 * 1024; 
+    const chunkSize = 64 * 1024; // 64 KB chunks
     const totalChunks = Math.ceil(file.size / chunkSize);
     let currentChunk = 0;
 
@@ -57,7 +58,7 @@ function sendFile(inputElement) {
             updateProgressBar((currentChunk / totalChunks) * 100);
 
             if (currentChunk < totalChunks) {
-                setTimeout(sendChunk, 50);
+                setTimeout(sendChunk, 50); // Simulate delay
             } else {
                 hideProgressBar();
             }
@@ -73,7 +74,7 @@ function sendFile(inputElement) {
 socket.on('file_receive', (data) => {
     if (data.chunkIndex === 0) {
         showProgressBar();
-        receivedFile = ''; 
+        receivedFile = ''; // Initialize received data
     }
 
     receivedFile += data.chunk;
@@ -108,3 +109,12 @@ function hideProgressBar() {
     const container = document.getElementById('progressContainer');
     container.style.display = 'none';
 }
+
+socket.on('your_name', (data) => {
+    const nameDiv = document.createElement('div');
+    nameDiv.textContent = `You are known as: ${data.name}`;
+    nameDiv.style.textAlign = 'center';
+    nameDiv.style.fontSize = '1.2rem';
+    nameDiv.style.marginTop = '20px';
+    document.body.appendChild(nameDiv);
+});
