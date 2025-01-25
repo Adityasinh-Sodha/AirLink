@@ -1,4 +1,6 @@
-Flask
-Flask-SocketIO
+flask==2.2.5
+flask-socketio==4.3.1
+python-socketio==4.6.1
 eventlet
 gevent
+werkzeug==2.2.3
