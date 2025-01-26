@@ -142,16 +142,7 @@ h1 {
     display: none;
 }
 
-#messageBox {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #f9f9f9;
-    border: 1px solid #ccc;
-    padding: 10px;
-    z-index: 1000;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
+
 
 #messagePopup {
     position: fixed;
@@ -175,4 +166,120 @@ h1 {
     font-weight: bold;
     padding: 5px;
     color: #f44336;
+}
+
+/* General Styling for Send Message Box */
+#messageBox {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    border-radius: 12px;
+    width: 400px;
+    padding: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    animation: popupAnimation 0.4s ease-out forwards;
+    height: 150px;
+    width: 380px;
+}
+
+/* Animation for Popup Effect */
+@keyframes popupAnimation {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Title Text Styling */
+#messageBox p {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 12px;
+    text-align: left;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin-top: 5px;
+    position: absolute;
+}
+
+/* Styling the Textbox */
+#messageInput {
+  width: 90%;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  padding: 16px 24px;
+  border-radius: 16px;
+  margin: 8px 0;
+  font-size: 14px;
+  font-family: inherit;
+  background: #f1f3f4;
+  background-color: rgb(241, 243, 244);
+  display: block;
+  overflow: auto;
+  resize: none;
+  min-height: 40px;
+  line-height: 16px;
+  max-height: 300px;
+  position: absolute;
+  margin-top: 55px;
+}
+
+
+/* Buttons */
+#messageBox button {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    font-weight: 600;
+    width: 100px;
+    margin: 0 8px;
+    position: absolute;
+    margin-top: 120px;
+    left: 210px;
+}
+
+
+#messageBox button:last-child {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    position: absolute; 
+    left: 70%; 
+}
+
+/* Hover Effects */
+#messageBox button:first-child:hover {
+    background-color: #0056b3;
+}
+
+#messageBox button:hover {
+    color: #0056b3;
+}
+
+/* Container for Buttons */
+#messageBox .button-container {
+    display: flex;
+    justify-content: right;
+    margin-top: 16px;
 }
