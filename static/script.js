@@ -16,6 +16,12 @@ socket.on('device_list', (data) => {
             document.getElementById('fileInput').click();
         };
 
+        deviceDiv.oncontextmenu = (e) => {
+            e.preventDefault();
+            selectedDevice = device;
+            showMessageBox(device);
+        };
+
         deviceListDiv.appendChild(deviceDiv);
     });
 });
@@ -122,23 +128,6 @@ socket.on('your_name', (data) => {
     document.body.appendChild(nameDiv);
 });
 
-socket.on('device_list', (data) => {
-    const deviceListDiv = document.getElementById('devices');
-    deviceListDiv.innerHTML = ''; // Clear existing devices
-    data.devices.forEach((device) => {
-        const deviceDiv = document.createElement('div');
-        deviceDiv.classList.add('device');
-        deviceDiv.textContent = device;
-
-        deviceDiv.oncontextmenu = (e) => {
-            e.preventDefault();
-            selectedDevice = device;
-            showMessageBox(device);
-        };
-
-        deviceListDiv.appendChild(deviceDiv);
-    });
-});
 // Send a message to the selected device
 function sendMessage() {
     const messageInput = document.getElementById('messageInput');
