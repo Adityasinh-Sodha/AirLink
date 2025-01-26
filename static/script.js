@@ -146,14 +146,28 @@ function sendMessage() {
 // Show message box
 function showMessageBox(device) {
     const messageBox = document.getElementById('messageBox');
-    document.getElementById('targetDevice').textContent = device;
     messageBox.style.display = 'block';
+
+    // Add event listener to close the message box when clicking outside
+    document.addEventListener('click', handleOutsideClick);
 }
 
 // Hide message box
 function hideMessageBox() {
     const messageBox = document.getElementById('messageBox');
     messageBox.style.display = 'none';
+
+    // Remove the event listener after hiding the message box
+    document.removeEventListener('click', handleOutsideClick);
+}
+
+// Handle outside click to close the message box
+function handleOutsideClick(event) {
+    const messageBox = document.getElementById('messageBox');
+    // Check if the click is outside the message box
+    if (!messageBox.contains(event.target)) {
+        hideMessageBox();
+    }
 }
 
 // Show popup for received messages
@@ -174,6 +188,6 @@ document.getElementById('closePopup').onclick = () => {
 // Listen for incoming messages
 socket.on('receive_message', (data) => {
     if (data && data.message && data.sender) {
-        showMessagePopup(`Message from ${data.sender}: ${data.message}`);
+        showMessagePopup(`${data.sender}: ${data.message}`);
     }
 });
