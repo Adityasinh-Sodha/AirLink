@@ -137,3 +137,42 @@ h1 {
     text-align: center;
     font-size: 1.2rem;
 }
+
+.hidden {
+    display: none;
+}
+
+#messageBox {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#messagePopup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ffeb3b;
+    border: 1px solid #ff9800;
+    padding: 10px;
+    z-index: 1000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#popupContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#closePopup {
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px;
+    color: #f44336;
+}
