@@ -121,3 +121,70 @@ socket.on('your_name', (data) => {
     nameDiv.classList.add('name-container');
     document.body.appendChild(nameDiv);
 });
+
+socket.on('device_list', (data) => {
+    const deviceListDiv = document.getElementById('devices');
+    deviceListDiv.innerHTML = ''; // Clear existing devices
+    data.devices.forEach((device) => {
+        const deviceDiv = document.createElement('div');
+        deviceDiv.classList.add('device');
+        deviceDiv.textContent = device;
+
+        deviceDiv.oncontextmenu = (e) => {
+            e.preventDefault();
+            selectedDevice = device;
+            showMessageBox(device);
+        };
+
+        deviceListDiv.appendChild(deviceDiv);
+    });
+});
+// Send a message to the selected device
+function sendMessage() {
+    const messageInput = document.getElementById('messageInput');
+    const message = messageInput.value.trim();
+
+    if (!selectedDevice || !message) {
+        alert("Target device or message is missing!");
+        return;
+    }
+
+    socket.emit('send_message', { target: selectedDevice, message: message });
+    messageInput.value = ''; // Clear the input box
+    hideMessageBox();
+}
+
+// Show message box
+function showMessageBox(device) {
+    const messageBox = document.getElementById('messageBox');
+    document.getElementById('targetDevice').textContent = device;
+    messageBox.style.display = 'block';
+}
+
+// Hide message box
+function hideMessageBox() {
+    const messageBox = document.getElementById('messageBox');
+    messageBox.style.display = 'none';
+}
+
+// Show popup for received messages
+function showMessagePopup(message) {
+    const popup = document.getElementById('messagePopup');
+    const popupMessage = document.getElementById('popupMessage');
+    popupMessage.textContent = message;
+    popup.classList.remove('hidden');
+    popup.style.display = 'block';
+}
+
+// Close the popup
+document.getElementById('closePopup').onclick = () => {
+    const popup = document.getElementById('messagePopup');
+    popup.style.display = 'none';
+};
+
+// Listen for incoming messages
+socket.on('receive_message', (data) => {
+    if (data && data.message && data.sender) {
+        showMessagePopup(`Message from ${data.sender}: ${data.message}`);
+    }
+});
