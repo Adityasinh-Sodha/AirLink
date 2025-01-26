@@ -71,6 +71,20 @@ def handle_file_send(data):
 def handle_file_receive(data):
     print("File data received:", data['file'])
 
+@socketio.on('send_message')
+def handle_send_message(data):
+    target_device = data.get('target')
+    message = data.get('message')
+
+    if not target_device or not message:
+        emit('error', {'message': 'Target device or message is missing!'}, room=request.sid)
+        return
+
+    for sid, device in devices.items():
+        if device['name'] == target_device:
+            emit('receive_message', {'message': message, 'sender': devices[request.sid]['name']}, room=sid)
+            break
+
 if __name__ == '__main__':
     import eventlet.wsgi
 
