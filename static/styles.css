@@ -105,6 +105,11 @@ h1 {
     color: #333;
 }
 
+.device.drag-over {
+    background-color: #d1e7ff;
+    border-color: #007bff;
+}
+
 .styled-device-name {
     color: #1d35ad; 
     font-weight: bold; 
@@ -166,7 +171,7 @@ h1 {
 
 /* General Styling for Send Message Box */
 #messageBox {
-    position: relative;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -175,12 +180,14 @@ h1 {
     width: 400px;
     padding: 16px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
+    z-index: 9999;
     display: none;
     opacity: 0;
     animation: popupAnimation 0.4s ease-out forwards;
     height: 150px;
     width: 380px;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Animation for Popup Effect */
