@@ -35,25 +35,11 @@ body {
     }
 }
 
-
-
-
 h1 {
     font-size: 2.5rem;
     position: absolute;
     top: 230px;
 }
-
-/*
-.subtitle {
-    color: #555; 
-    font-size: 1.3rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    position: absolute;
-    top: 705px;
-}
-*/
 
 .device-list {
     display: flex;
@@ -62,15 +48,6 @@ h1 {
     position: absolute;
     top: 310px;
 }
-
-/*
-#currentDevice {
-    position: absolute;
-    bottom: 50px;
-    text-align: center;
-    font-weight: bold;
-}
-*/
 
 .logo {
     display: block;
