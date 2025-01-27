@@ -313,3 +313,12 @@ h1 {
     z-index: 10;
     display: none; /* Hidden by default */
 }
+
+.help {
+  opacity: 0.5;
+  transition: opacity 300ms;
+  z-index: -1;
+  text-align: center;
+  margin-top: 10px;
+
+}
