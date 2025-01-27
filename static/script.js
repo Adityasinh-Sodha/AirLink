@@ -191,3 +191,24 @@ socket.on('receive_message', (data) => {
         showMessagePopup(`${data.sender}: ${data.message}`);
     }
 });
+
+// Show the message box and fade-out background
+function showMessageBox() {
+    const overlay = document.getElementById('overlay');
+    const messageBox = document.getElementById('messageBox');
+    
+    overlay.style.display = 'block'; // Show the overlay
+    messageBox.style.display = 'block'; // Show the message box
+
+    // Close the message box if clicked outside
+    overlay.onclick = () => hideMessageBox();
+}
+
+// Hide the message box and remove fade-out background
+function hideMessageBox() {
+    const overlay = document.getElementById('overlay');
+    const messageBox = document.getElementById('messageBox');
+    
+    overlay.style.display = 'none'; // Hide the overlay
+    messageBox.style.display = 'none'; // Hide the message box
+}
