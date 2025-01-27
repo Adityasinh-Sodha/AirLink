@@ -39,6 +39,7 @@ h1 {
     font-size: 2.5rem;
     position: absolute;
     top: 230px;
+    z-index: 90;0
 }
 
 .device-list {
@@ -112,10 +113,11 @@ h1 {
 }
 
 .name-container {
-    position: fixed; 
-    bottom: 25px; 
+    position: initial; 
     text-align: center;
     font-size: 1.2rem;
+    margin-top: 670px;
+    cursor: text;
 }
 
 .hidden {
