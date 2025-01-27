@@ -212,3 +212,51 @@ function hideMessageBox() {
     overlay.style.display = 'none'; // Hide the overlay
     messageBox.style.display = 'none'; // Hide the message box
 }
+
+// Enable drag-and-drop for device elements
+function enableDragAndDrop() {
+    const devices = document.querySelectorAll('.device');
+
+    devices.forEach((device) => {
+        device.ondragover = (e) => {
+            e.preventDefault();
+            device.classList.add('drag-over');
+        };
+
+        device.ondragleave = () => {
+            device.classList.remove('drag-over');
+        };
+
+        device.ondrop = (e) => {
+            e.preventDefault();
+            device.classList.remove('drag-over');
+
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                const file = files[0];
+                selectedDevice = device.textContent; // Set the selected device
+                sendFile({ files: [file] }); // Call the existing sendFile function
+            }
+        };
+    });
+}
+
+// Re-enable drag-and-drop after device list updates
+socket.on('device_list', (data) => {
+    const deviceListDiv = document.getElementById('devices');
+    deviceListDiv.innerHTML = ''; // Clear existing devices
+    data.devices.forEach((device) => {
+        const deviceDiv = document.createElement('div');
+        deviceDiv.classList.add('device');
+        deviceDiv.textContent = device;
+
+        deviceDiv.onclick = () => {
+            selectedDevice = device;
+            document.getElementById('fileInput').click();
+        };
+
+        deviceListDiv.appendChild(deviceDiv);
+    });
+
+    enableDragAndDrop(); // Re-enable drag-and-drop on updated devices
+});
