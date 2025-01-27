@@ -60,7 +60,7 @@ AirLink/
 
 ## Technologies Used
 - **Frontend**: HTML, CSS, JavaScript
-- **Backend**: Python (Flask)
+- **Backend**: Python (WSGI)
 - **Real-time Communication**: Socket.IO
 
 
