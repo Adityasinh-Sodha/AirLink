@@ -50,8 +50,13 @@ AirLink/
 │   ├── script.js
 │   ├── socket.io.min.js
 │   ├── assets/
-│       ├── favicon.png
-│       ├── logo.png
+|       ├── android-chrome-192x192.png
+|       ├── apple-touch-icon.png
+|       ├── favicon-16x16.png
+|       ├── favicon-32x32.png
+|       ├── favicon.ico
+|       ├── logo.png
+|       ├── site.webmanifest
 ├── templates/
 │   ├── index.html
 ├── app.py
