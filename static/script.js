@@ -238,6 +238,13 @@ function enableDragAndDrop() {
                 sendFile({ files: [file] }); // Call the existing sendFile function
             }
         };
+
+        // Handle right-click for sending a message
+        device.oncontextmenu = (e) => {
+            e.preventDefault(); // Prevent the default context menu
+            selectedDevice = device.textContent; // Set the selected device for the message
+            showMessageBox(); // Show the message box for this device
+        };
     });
 }
 
