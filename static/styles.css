@@ -6,7 +6,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f9f9f9;
+    background-image: url('assets/2.png');
     overflow: hidden;
     position: relative;
  }
