@@ -316,6 +316,8 @@ h1 {
     border: 1px solid #ddd;
     border-radius: 5px;
     max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
     text-align: left;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: fixed;
