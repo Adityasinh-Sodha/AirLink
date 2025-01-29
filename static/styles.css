@@ -4,7 +4,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     margin: 0;
     background-image: url('assets/2.png');
     overflow: hidden;
@@ -36,10 +36,10 @@ body {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 3.0rem;
     position: absolute;
-    top: 230px;
-    z-index: 90;0
+    top: 220px;
+    z-index: 900;
 }
 
 .device-list {
@@ -118,10 +118,9 @@ h1 {
 }
 
 .name-container {
-    position: initial; 
-    text-align: center;
+    position: absolute;
     font-size: 1.2rem;
-    margin-top: 670px;
+    bottom: -730px;
     cursor: text;
 }
 
@@ -130,10 +129,9 @@ h1 {
 }
 
 
-
 #messagePopup {
     position: fixed;
-    top: 20px;
+    top: 45px;
     right: 20px;
     background: #ffeb3b;
     border: 1px solid #ff9800;
@@ -306,9 +304,76 @@ h1 {
 .help {
   opacity: 0.5;
   transition: opacity 300ms;
-  z-index: -1;
   text-align: center;
   margin-top: 10px;
   z-index: 900;
+  
+}
 
+#changelogSection {
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 600px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    display: none;
+    animation: popupAnimation 0.4s ease-out forwards;
+
+}
+
+
+#changelogContent {
+   margin: 0;
+   padding: 0;
+}
+
+#changelogToggle {
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+    color: gray;
+    display: block;
+    text-align: center;
+    z-index: 1100;
+    position: absolute;
+    right: 30px;
+    top: 5px;
+}
+
+#changelogToggle:hover {
+    text-decoration: underline;
+    color: #1d35ad;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 900;
+}
+
+#closeChangelog {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: red;
+}
+
+#closeChangelog:hover {
+    color: darkred;
 }
