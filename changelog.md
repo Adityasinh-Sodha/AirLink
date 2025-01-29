@@ -29,6 +29,7 @@
 <ul>
 <li>Fixed all alignment issues.  </li>
 <li>Fixed alignment issues on mobile screens.</li>
+<li>Fixed Changelog Expansion issue</li>
 </ul>
 <h3>Known Issues</h3>
 <ul>
