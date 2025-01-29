@@ -267,3 +267,37 @@ socket.on('device_list', (data) => {
 
     enableDragAndDrop(); // Re-enable drag-and-drop on updated devices
 });
+
+// Function to load the Changelog content directly as HTML
+document.addEventListener("DOMContentLoaded", function () {
+    const changelogSection = document.getElementById("changelogSection");
+    const changelogContent = document.getElementById("changelogContent");
+    const overlay = document.getElementById("overlay");
+    const changelogToggle = document.getElementById("changelogToggle");
+    const closeChangelog = document.getElementById("closeChangelog");
+
+    changelogSection.style.display = "none";
+    overlay.style.display = "none";
+
+    changelogToggle.addEventListener("click", function () {
+        changelogSection.style.display = "block";
+        overlay.style.display = "block";
+
+        fetch("https://raw.githubusercontent.com/Adityasinh-Sodha/AirLink/refs/heads/main/changelog.md")
+            .then(response => response.text())
+            .then(data => {
+                changelogContent.innerHTML = data;
+            })
+            .catch(error => {
+                changelogContent.innerHTML = "<p>Error loading changelog.</p>";
+            });
+    });
+
+    function closeChangelogSection() {
+        changelogSection.style.display = "none";
+        overlay.style.display = "none";
+    }
+
+    closeChangelog.addEventListener("click", closeChangelogSection);
+    overlay.addEventListener("click", closeChangelogSection);
+});
