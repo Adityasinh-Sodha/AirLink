@@ -6,7 +6,7 @@
     <title>AirLink</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     
-
+     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
     <link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='assets/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='assets/favicon-32x32.png') }}">
@@ -21,7 +21,7 @@
     <div class="device-list">
     <div id="devices"></div>
     <input type="file" id="fileInput" style="display: none;" onchange="sendFile(this)"/>     
-    <div class="help">Click to send files, Right-click or hold to send messages.</div>
+    <div class="help">Click to send files, left-click or hold to send messages.</div>
     <div id="overlay" class="hidden"></div>
 
     <!-- Message Box -->
@@ -40,13 +40,21 @@
         <p id="popupMessage"></p>
     </div>
     </div>
-
     </div>
     <!--<div id="currentDevice"></div>-->
     <div class="signal-animation"></div>
     <div id="progressContainer" style="display: none;">
     <div id="progressBar"></div>
     </div>
+
+    <p id="changelogToggle">Changelog</p>
+    <div id="overlay"></div>
+
+    <div id="changelogSection">
+    <button id="closeChangelog">✖</button>
+    <div id="changelogContent"></div>
+    </div>
+
     <input type="file" id="fileInput" style="display: none;" onchange="sendFile(this)" />
     <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="AirLink Logo" class="logo">
     <script src="{{ url_for('static', filename='socket.io.min.js') }}"></script>
