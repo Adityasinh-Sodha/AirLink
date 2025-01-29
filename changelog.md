@@ -19,3 +19,18 @@
 <ul>
 <li>Some of the Alignments are collapsed in mobile devices.</li>
 </ul>
+<h2>Unreleased - 2025-01-28</h2>
+<h3>Added</h3>
+<ul>
+<li>Added a changelog to the main interface.  </li>
+<li>Added an aesthetic light background.</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>Fixed all alignment issues.  </li>
+<li>Fixed alignment issues on mobile screens.</li>
+</ul>
+<h3>Known Issues</h3>
+<ul>
+<li>None reported in the current state.</li>
+</ul>
