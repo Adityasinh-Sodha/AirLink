@@ -19,7 +19,7 @@
 <ul>
 <li>Some of the Alignments are collapsed in mobile devices.</li>
 </ul>
-<h2>Unreleased - 2025-01-28</h2>
+<h2>Unreleased - 2025-01-29</h2>
 <h3>Added</h3>
 <ul>
 <li>Added a changelog to the main interface.  </li>
