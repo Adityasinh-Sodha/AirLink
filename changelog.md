@@ -1,4 +1,4 @@
-# [Build 1.0 - Stable - 2025-1-28](https://github.com/Adityasinh-Sodha/AirLink/releases/tag/Build-1.0)
+# [Build 01 - Stable - 2025-1-28](https://github.com/Adityasinh-Sodha/AirLink/releases/tag/Build-01)
 ## Added
 - Automatically detects and lists LAN devices.
 - Added Random Names For all devices.
