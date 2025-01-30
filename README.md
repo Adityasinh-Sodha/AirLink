@@ -46,6 +46,7 @@ AirLink is a streamlined and user-friendly web-based file-sharing platform desig
 ```
 AirLink/
 ├── static/
+|   ├── 2.png
 │   ├── styles.css
 │   ├── script.js
 │   ├── socket.io.min.js
