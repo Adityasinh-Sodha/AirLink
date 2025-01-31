@@ -35,8 +35,14 @@ body {
     }
 }
 
+@font-face {
+    font-family: 'IBrand';
+    src: url('assets/ibrand.otf') format('opentype');
+}
+
 h1 {
-    font-size: 3.0rem;
+    font-family: 'IBrand', sans-serif;
+    font-size: 3.5rem;
     position: absolute;
     top: 220px;
     z-index: 900;
