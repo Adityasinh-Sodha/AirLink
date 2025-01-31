@@ -301,3 +301,41 @@ document.addEventListener("DOMContentLoaded", function () {
     closeChangelog.addEventListener("click", closeChangelogSection);
     overlay.addEventListener("click", closeChangelogSection);
 });
+// changelog ends
+
+document.getElementById("aboutUsButton").addEventListener("click", function (event) {
+    let overlay = document.getElementById("aboutUsOverlay");
+    let button = event.target; // The clicked button
+    let content = document.getElementById("aboutUsContent"); // Content to show when animation occurs
+
+    // Toggle button color and state
+    if (button.classList.contains("active")) {
+        button.classList.remove("active");
+        button.style.color = "black"; // Normal color
+        button.style.borderColor = "black"; // Normal border color
+
+        // If overlay is active, hide it and hide content after animation ends
+        overlay.classList.remove("active");
+        setTimeout(() => {
+            content.classList.remove("show"); // Hide content after animation
+        }, 600); // Match the transition time for the overlay
+    } else {
+        button.classList.add("active");
+        button.style.color = "white"; // White text color when active
+        button.style.borderColor = "white"; // White border when active
+
+        // Set overlay position based on button center
+        let rect = button.getBoundingClientRect();
+        let centerX = rect.left + rect.width / 2;
+        let centerY = rect.top + rect.height / 2;
+
+        overlay.style.left = `${centerX}px`;
+        overlay.style.top = `${centerY}px`;
+        overlay.classList.add("active");
+
+        // Show the content after the animation starts
+        setTimeout(() => {
+            content.classList.add("show"); // Show content after overlay starts expanding
+        }, 600); // Match the transition time for the overlay
+    }
+});
