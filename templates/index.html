@@ -47,13 +47,38 @@
     <div id="progressBar"></div>
     </div>
 
-    <p id="changelogToggle">Changelog</p>
+   <!-- <p id="changelogToggle">Changelog</p>
     <div id="overlay"></div>
 
     <div id="changelogSection">
     <button id="closeChangelog">✖</button>
     <div id="changelogContent"></div>
+    </div>-->
+
+<div id="aboutUsButton">i</div>
+
+<div id="aboutUsContent" class="hidden">
+    <h1 id="airLinkText">AirLink</h1>
+    <h4 id="abouttext">Experience the ease of sharing files</h4>
+    <hr id="separatorLine">
+    <div class="imageContainer">
+      <a href="https://github.com/Adityasinh-Sodha" target="_blank">
+            <img src="{{ url_for('static', filename='assets/github.png') }}" alt="GitHub" class="githubImage">
+        </a>
+        <a href="https://gitlab.com/Adityasinh-Sodha" target="_blank">
+            <img src="{{ url_for('static', filename='assets/gitlab.png') }}" alt="GitLab" class="gitlabImage">
+        </a>
+       <a href="mailto:work.adityasodha@gmail.com">
+    <img src="{{ url_for('static', filename='assets/cg.png') }}" alt="cg" class="additionalImage">
+</a>
+
+
     </div>
+</div>
+
+<div id="aboutUsOverlay"></div>
+
+
 
     <input type="file" id="fileInput" style="display: none;" onchange="sendFile(this)" />
     <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="AirLink Logo" class="logo">
