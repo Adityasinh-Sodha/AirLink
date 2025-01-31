@@ -56,6 +56,7 @@ AirLink/
 |       ├── favicon-16x16.png
 |       ├── favicon-32x32.png
 |       ├── favicon.ico
+|       ├── ibrand.otf
 |       ├── logo.png
 |       ├── site.webmanifest
 ├── templates/
