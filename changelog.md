@@ -35,3 +35,26 @@
 <ul>
 <li>None reported in the current state.</li>
 </ul>
+<h2>Unreleased - 2025-02-01</h2>
+<h3>Added</h3>
+<ul>
+<li>Added I-Brand Fonts</li>
+<li>Added About Us content and its transition effect</li>
+<li>Added links for GitHub, GitLab, and Mail</li>
+<li>Updated ChangeLog location to the About Us page</li>
+</ul>
+<h3>Removed</h3>
+<ul>
+<li>Removed ChangeLog overlay</li>
+<li>Removed Background image</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>Fixed About Us page and its content</li>
+</ul>
+<h3>Known Issues</h3>
+<ul>
+<li>None reported in the current state.</li>
+</ul>
+
+
