@@ -272,16 +272,13 @@ socket.on('device_list', (data) => {
 document.addEventListener("DOMContentLoaded", function () {
     const changelogSection = document.getElementById("changelogSection");
     const changelogContent = document.getElementById("changelogContent");
-    const overlay = document.getElementById("overlay");
     const changelogToggle = document.getElementById("changelogToggle");
     const closeChangelog = document.getElementById("closeChangelog");
 
     changelogSection.style.display = "none";
-    overlay.style.display = "none";
 
     changelogToggle.addEventListener("click", function () {
         changelogSection.style.display = "block";
-        overlay.style.display = "block";
 
         fetch("https://raw.githubusercontent.com/Adityasinh-Sodha/AirLink/refs/heads/main/changelog.md")
             .then(response => response.text())
@@ -295,11 +292,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function closeChangelogSection() {
         changelogSection.style.display = "none";
-        overlay.style.display = "none";
     }
 
     closeChangelog.addEventListener("click", closeChangelogSection);
-    overlay.addEventListener("click", closeChangelogSection);
 });
 // changelog ends
 
@@ -318,7 +313,7 @@ document.getElementById("aboutUsButton").addEventListener("click", function (eve
         overlay.classList.remove("active");
         setTimeout(() => {
             content.classList.remove("show"); // Hide content after animation
-        }, 600); // Match the transition time for the overlay
+        }, 0); // Match the transition time for the overlay
     } else {
         button.classList.add("active");
         button.style.color = "white"; // White text color when active
