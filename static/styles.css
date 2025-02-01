@@ -325,14 +325,15 @@ h1 {
     border-radius: 5px;
     max-width: 600px;
     max-height: 80vh;
+    width: 600px;
     overflow-y: auto;
     text-align: left;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    top: 50%;
+    position: absolute;
+    top: 150px;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1000;
+    z-index: 5500;
     display: none;
     animation: popupAnimation 0.4s ease-out forwards;
 
@@ -348,13 +349,12 @@ h1 {
     text-decoration: underline;
     cursor: pointer;
     font-weight: bold;
-    color: gray;
+    color: white;
     display: block;
     text-align: center;
-    z-index: 1100;
+    z-index: 5500;
     position: absolute;
-    right: 30px;
-    top: 5px;
+    top: 200px;
 }
 
 #changelogToggle:hover {
