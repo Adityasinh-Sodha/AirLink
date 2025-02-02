@@ -3,6 +3,7 @@ eventlet.monkey_patch()
 
 import os
 import socket
+import ipaddress  # <-- Import ipaddress module
 from flask import Flask, render_template, request, jsonify
 from flask_socketio import SocketIO, emit
 import requests
@@ -29,7 +30,6 @@ def fetch_random_name():
             last_name = data['results'][0]['name']['last']
             return f"{first_name} {last_name}"
         else:
-            # Fallback to a default name if API fails
             return "Guest User"
     except Exception as e:
         print(f"Error fetching random name: {e}")
@@ -37,17 +37,42 @@ def fetch_random_name():
 
 @socketio.on('connect')
 def handle_connect():
-    random_name = fetch_random_name()  # Fetch a random name from the API
-    devices[request.sid] = {'ip': local_ip, 'name': random_name}
-    emit('device_list', {'devices': [device['name'] for device in devices.values()]}, broadcast=True)
-    emit('your_name', {'name': random_name}, room=request.sid)
+    remote_ip = request.remote_addr  # Get client's IP address
+    try:
+        # Check if the client's IP is a private address.
+        if ipaddress.ip_address(remote_ip).is_private:
+            random_name = fetch_random_name()
+            devices[request.sid] = {'ip': remote_ip, 'name': random_name}
+            emit('device_list', {'devices': [device['name'] for device in devices.values()]}, broadcast=True)
+            emit('your_name', {'name': random_name}, room=request.sid)
+        else:
+            # For non-private (public) IPs, you might choose to not add them to the list.
+            print(f"Non-local connection attempt from IP: {remote_ip}")
+            # Optionally, you can disconnect the client:
+            # disconnect()  # (Requires importing disconnect from flask_socketio)
+    except Exception as e:
+        print(f"Error processing connection from {remote_ip}: {e}")
 
 @socketio.on('disconnect')
 def handle_disconnect():
-    with app.app_context():  # Ensure context is active
-        if request.sid in devices:
-            del devices[request.sid]
-        emit('device_list', {'devices': [device['name'] for device in devices.values()]}, broadcast=True)
+    if request.sid in devices:
+        del devices[request.sid]
+    emit('device_list', {'devices': [device['name'] for device in devices.values()]}, broadcast=True)
+
+@socketio.on('send_message')
+def handle_send_message(data):
+    target_device = data.get('target')
+    message = data.get('message')
+
+    if not target_device or not message:
+        emit('error', {'message': 'Target device or message is missing!'}, room=request.sid)
+        return
+
+    sender_name = devices.get(request.sid, {}).get('name', 'Unknown')
+    for sid, device in devices.items():
+        if device['name'] == target_device:
+            emit('receive_message', {'message': message, 'sender': sender_name}, room=sid)
+            break
 
 @socketio.on('file_send')
 def handle_file_send(data):
@@ -69,24 +94,9 @@ def handle_file_send(data):
 
 @socketio.on('file_receive')
 def handle_file_receive(data):
-    print("File data received:", data['file'])
-
-@socketio.on('send_message')
-def handle_send_message(data):
-    target_device = data.get('target')
-    message = data.get('message')
-
-    if not target_device or not message:
-        emit('error', {'message': 'Target device or message is missing!'}, room=request.sid)
-        return
-
-    for sid, device in devices.items():
-        if device['name'] == target_device:
-            emit('receive_message', {'message': message, 'sender': devices[request.sid]['name']}, room=sid)
-            break
+    print("File data received:", data.get('chunk'))
 
 if __name__ == '__main__':
     import eventlet.wsgi
-
     port = int(os.getenv('PORT', 5000))
     socketio.run(app, host='0.0.0.0', port=port, debug=True)
