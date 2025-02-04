@@ -41,7 +41,7 @@ AirLink is a streamlined and user-friendly web-based file-sharing platform desig
    python3 app.py
    ```
 4. Open your web browser and go to `http://<local_ip>:5000`.
-
+<!--
 ### Folder Structure
 ```
 AirLink/
@@ -66,7 +66,7 @@ AirLink/
 ├── templates/
 │   ├── index.html
 ├── app.py
-``` 
+``` -->
 
 
 ## Technologies Used
