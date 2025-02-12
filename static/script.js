@@ -334,3 +334,22 @@ document.getElementById("aboutUsButton").addEventListener("click", function (eve
         }, 600); // Match the transition time for the overlay
     }
 });
+
+const toggleSwitch = document.getElementById("theme-toggle");
+
+// Check for saved theme in localStorage
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    toggleSwitch.checked = true;
+}
+
+// Toggle theme on switch click
+toggleSwitch.addEventListener("change", () => {
+    if (toggleSwitch.checked) {
+        document.body.classList.add("dark-mode");
+        localStorage.setItem("theme", "dark"); // Save preference
+    } else {
+        document.body.classList.remove("dark-mode");
+        localStorage.setItem("theme", "light"); // Save preference
+    }
+});
