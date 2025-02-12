@@ -311,6 +311,7 @@ h1 {
 
 .dark-mode #messagePopup {
     background-color: #1E1E1E;
+    border: 2px solid #1d35ad;
     color: white;
 }
 
