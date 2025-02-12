@@ -56,5 +56,21 @@
 <ul>
 <li>None reported in the current state.</li>
 </ul>
-
-
+<h2>Unreleased - 2025-02-12</h2>
+<h3>Added</h3>
+<ul>
+<li>Added Dark theme</li>
+<li>Added a switch to toggle dark theme</li>
+</ul>
+<h3>Removed</h3>
+<ul>
+<li>None</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>Fixed all items to adjust with dark theme</li>
+</ul>
+<h3>Known Issues</h3>
+<ul>
+<li>None reported in the current state.</li>
+</ul>
