@@ -618,3 +618,31 @@ input:checked + .slider {
 input:checked + .slider:before {
     transform: translateX(24px);
 }
+
+.mode-textdark {
+    position: absolute;
+    display: flex;
+    top: 3px;
+    right: -50px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black; 
+}
+
+.mode-textlight {
+    position: absolute;
+    display: flex;
+    top: 3px;
+    right: 65px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black; 
+}
+
+.dark-mode .mode-textdark {
+    color: white; 
+}
+
+.dark-mode .mode-textlight {
+    color: white;
+}
