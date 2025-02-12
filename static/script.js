@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
     changelogToggle.addEventListener("click", function () {
         changelogSection.style.display = "block";
 
-        fetch("https://raw.githubusercontent.com/Adityasinh-Sodha/AirLink/refs/heads/main/changelog.md")
+        fetch("https://raw.githubusercontent.com/Adityasinh-Sodha/AirLink/refs/heads/main/CHANGELOG.md")
             .then(response => response.text())
             .then(data => {
                 changelogContent.innerHTML = data;
