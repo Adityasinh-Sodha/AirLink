@@ -74,3 +74,30 @@
 <ul>
 <li>None reported in the current state.</li>
 </ul>
+<h2><a href="https://github.com/Adityasinh-Sodha/AirLink/releases/tag/Build-01">Build 02 - Stable - 2025-2-17</a></h2>
+<h3>Added</h3>
+<ul>
+<li>Added option for Dark and Light themes</li>
+<li>Added I-Brand Fonts</li>
+<li>Added About Us content and its transition effect</li>
+<li>Added changelog</li>
+</ul>
+<h3>Removed</h3>
+<ul>
+<li>Removed ChangeLog overlay</li>
+<li>Removed Background image</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>Fixed all alignment issues. </li>
+<li>Fixed alignment issues on mobile screens.</li>
+<li>Fixed Changelog Expansion issue</li>
+<li>Fixed About Us page and its content</li>
+<li>Fixed all items to adjust with dark theme</li>
+<li>Fixed device list and message interactions.</li>
+<li>Fixed The issue of receiving corrupted files.</li>
+</ul>
+<h3>Known Issues</h3>
+<ul>
+<li>None reported in the current state.</li>
+</ul>
