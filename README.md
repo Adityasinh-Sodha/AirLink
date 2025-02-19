@@ -4,22 +4,14 @@ AirLink is a streamlined and user-friendly web-based file-sharing platform desig
 
 ## Features
 
-### 1. **Device Discovery**
-- Automatically detects devices on the same network.
-- Displays available devices in an interactive list.
-- Simple click-to-select device functionality.
 
-### 2. **File Sharing**
+- Automatically detects devices on the same network.
+- Displays available devices in list.
+- Simple click-to-select device functionality.
 - Select files using your device's native file picker.
 - Send files directly to the selected device with a single click.
+- Send messages via right click or hold
 - Supports various file types and sizes.
-
-### 3. **Dynamic UI/UX**
-- **Responsive Design**: Works seamlessly on desktops, tablets, and mobile devices.
-- **Visual Feedback**: Real-time status updates during device discovery and file transfer.
-
-
-### 4. **Seamless Integration**
 - Uses a local IP-based network communication system.
 - Incorporates Socket.IO for real-time communication between devices.
 - No external dependencies after initial setup, with all required files stored in the `static` folder.
@@ -30,7 +22,7 @@ AirLink is a streamlined and user-friendly web-based file-sharing platform desig
 - Python 3.x installed on your system.
 - Flask framework.
 
-### Steps
+### Steps to setup locally
 1. Clone the repository or download the project files.
 2. Install necessary library:
    ```
@@ -41,7 +33,7 @@ AirLink is a streamlined and user-friendly web-based file-sharing platform desig
    python3 app.py
    ```
 4. Open your web browser and go to `http://<local_ip>:5000`.
-
+<!--
 ### Folder Structure
 ```
 AirLink/
@@ -66,8 +58,8 @@ AirLink/
 ├── templates/
 │   ├── index.html
 ├── app.py
-``` 
-
+```
+-->
 
 ## Technologies Used
 - **Frontend**: HTML, CSS, JavaScript
