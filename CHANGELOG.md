@@ -101,3 +101,13 @@
 <ul>
 <li>None reported in the current state.</li>
 </ul>
+<h2>Unreleased - 2025-02-25</h2>
+<h3>changes:</h3>
+<h4>1. fixed:</h4>
+<ul>
+<li>Fixed the device_list function to not show the current user device name in the list of all active devices</li>
+</ul>
+<h4>2. known_issues:</h4>
+<ul>
+<li>ailments alignment issue on small screens</li>
+</ul>
