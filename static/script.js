@@ -6,6 +6,12 @@ let receivedFile = []; // Store file chunks as an array of ArrayBuffers
 socket.on('device_list', (data) => {
     const deviceListDiv = document.getElementById('devices');
     deviceListDiv.innerHTML = ''; // Clear existing devices
+
+    if (data.devices.length === 0) {
+        console.log("No other devices available.");
+        return; // Don't add anything to the list
+    }
+
     data.devices.forEach((device) => {
         const deviceDiv = document.createElement('div');
         deviceDiv.classList.add('device');
@@ -25,6 +31,8 @@ socket.on('device_list', (data) => {
         deviceListDiv.appendChild(deviceDiv);
     });
 });
+
+
 
 function sendFile(inputElement) {
     if (!selectedDevice) {
@@ -296,30 +304,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     closeChangelog.addEventListener("click", closeChangelogSection);
 });
-// changelog ends
+
 
 document.getElementById("aboutUsButton").addEventListener("click", function (event) {
     let overlay = document.getElementById("aboutUsOverlay");
-    let button = event.target; // The clicked button
-    let content = document.getElementById("aboutUsContent"); // Content to show when animation occurs
+    let button = event.target; 
+    let content = document.getElementById("aboutUsContent");
 
     // Toggle button color and state
     if (button.classList.contains("active")) {
         button.classList.remove("active");
-        button.style.color = "black"; // Normal color
-        button.style.borderColor = "black"; // Normal border color
+        button.style.color = "black"; 
+        button.style.borderColor = "black";
 
-        // If overlay is active, hide it and hide content after animation ends
         overlay.classList.remove("active");
         setTimeout(() => {
-            content.classList.remove("show"); // Hide content after animation
-        }, 0); // Match the transition time for the overlay
+            content.classList.remove("show"); 
+        }, 0); 
     } else {
         button.classList.add("active");
-        button.style.color = "white"; // White text color when active
-        button.style.borderColor = "white"; // White border when active
+        button.style.color = "white"; 
+        button.style.borderColor = "white"; 
 
-        // Set overlay position based on button center
         let rect = button.getBoundingClientRect();
         let centerX = rect.left + rect.width / 2;
         let centerY = rect.top + rect.height / 2;
@@ -328,28 +334,25 @@ document.getElementById("aboutUsButton").addEventListener("click", function (eve
         overlay.style.top = `${centerY}px`;
         overlay.classList.add("active");
 
-        // Show the content after the animation starts
         setTimeout(() => {
-            content.classList.add("show"); // Show content after overlay starts expanding
-        }, 600); // Match the transition time for the overlay
+            content.classList.add("show"); 
+        }, 600);
     }
 });
 
 const toggleSwitch = document.getElementById("theme-toggle");
 
-// Check for saved theme in localStorage
 if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark-mode");
     toggleSwitch.checked = true;
 }
 
-// Toggle theme on switch click
 toggleSwitch.addEventListener("change", () => {
     if (toggleSwitch.checked) {
         document.body.classList.add("dark-mode");
-        localStorage.setItem("theme", "dark"); // Save preference
+        localStorage.setItem("theme", "dark"); 
     } else {
         document.body.classList.remove("dark-mode");
-        localStorage.setItem("theme", "light"); // Save preference
+        localStorage.setItem("theme", "light");
     }
 });
