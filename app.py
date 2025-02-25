@@ -56,10 +56,16 @@ def handle_connect():
 
 @socketio.on('disconnect')
 def handle_disconnect():
-    with app.app_context():  # Ensure context is active
-        if request.sid in devices:
-            del devices[request.sid]
-        emit('device_list', {'devices': [device['name'] for device in devices.values()]}, broadcast=True)
+    if request.sid in devices:
+        disconnected_device = devices.pop(request.sid, None)
+        print(f"Device disconnected: {disconnected_device['name']}")
+
+    # Send updated device list to all remaining clients
+    for sid in devices:
+        socketio.emit('device_list', {
+            'devices': [device['name'] for sid_, device in devices.items() if sid_ != sid]
+        }, room=sid)
+
 
 @socketio.on('file_send')
 def handle_file_send(data):
