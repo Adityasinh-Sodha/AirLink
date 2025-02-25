@@ -37,9 +37,21 @@ def fetch_random_name():
 
 @socketio.on('connect')
 def handle_connect():
-    random_name = fetch_random_name()  # Fetch a random name from the API
-    devices[request.sid] = {'ip': local_ip, 'name': random_name}
-    emit('device_list', {'devices': [device['name'] for device in devices.values()]}, broadcast=True)
+    client_ip = request.environ.get('REMOTE_ADDR', request.remote_addr)
+    random_name = fetch_random_name()  
+
+    # Store device info
+    devices[request.sid] = {'ip': client_ip, 'name': random_name}
+
+    print(f"New connection: {random_name} ({client_ip})")
+    
+    # Send device list excluding current device
+    for sid in devices:
+        socketio.emit('device_list', {
+            'devices': [device['name'] for sid_, device in devices.items() if sid_ != sid]
+        }, room=sid)
+
+    # Send the current device its assigned name
     emit('your_name', {'name': random_name}, room=request.sid)
 
 @socketio.on('disconnect')
