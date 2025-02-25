@@ -16,6 +16,7 @@ AirLink is a streamlined and user-friendly web-based file-sharing platform desig
 - Incorporates Socket.IO for real-time communication between devices.
 - No external dependencies after initial setup, with all required files stored in the `static` folder.
 
+
 ## Setup Instructions
 
 ### Prerequisites
@@ -66,6 +67,9 @@ AirLink/
 - **Backend**: Python (WSGI)
 - **Real-time Communication**: Socket.IO
 
+## AirLink is live on: 
+- [**Railway**](https://airlink.up.railway.app/) 
+- [**Render**](https://airlink-ma0q.onrender.com/) 
 
 ## License
 This project is licensed under the MIT License.
