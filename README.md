@@ -67,10 +67,10 @@ AirLink/
 - **Backend**: Python (WSGI)
 - **Real-time Communication**: Socket.IO
 
-## AirLink is live on: 
+<!-- ## AirLink is live on: 
 - [**Railway**](https://airlink.up.railway.app/) 
 - [**Render**](https://airlink-ma0q.onrender.com/) 
-
+-->
 ## License
 This project is licensed under the MIT License.
 ## Author
