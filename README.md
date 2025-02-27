@@ -8,14 +8,10 @@ AirLink is a streamlined and user-friendly web-based file-sharing platform desig
 - Automatically detects devices on the same network.
 - Displays available devices in list.
 - Simple click-to-select device functionality.
-- Select files using your device's native file picker.
 - Send files directly to the selected device with a single click.
 - Send messages via right click or hold
 - Supports various file types and sizes.
-- Uses a local IP-based network communication system.
 - Incorporates Socket.IO for real-time communication between devices.
-- No external dependencies after initial setup, with all required files stored in the `static` folder.
-
 
 ## Setup Instructions
 
