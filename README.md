@@ -2,7 +2,6 @@
 
 AirLink is a streamlined and user-friendly web-based file-sharing platform designed to facilitate secure and fast file transfers between devices connected to the same network.
 
-<!-- ![Airlink Mokeup](https://github.com/user-attachments/assets/5ac0bfa6-fe6d-4810-a4fd-a19b2ace1720) -->
 ![Airlink_Mokeup](https://github.com/user-attachments/assets/2c871b45-dd60-471f-a489-8fc90d025ddc) ![Airlink Mokeup 6](https://github.com/user-attachments/assets/a64fc0d1-817e-41f4-9b08-f6cacb62c80b)
 
 
