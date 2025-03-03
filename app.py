@@ -21,7 +21,6 @@ def index():
 
 def fetch_random_name():
     try:
-        # Use locale 'us' for English names
         response = requests.get("https://randomuser.me/api/?nat=us")
         if response.status_code == 200:
             data = response.json()
@@ -38,21 +37,38 @@ def fetch_random_name():
 @socketio.on('connect')
 def handle_connect():
     client_ip = request.environ.get('REMOTE_ADDR', request.remote_addr)
-    random_name = fetch_random_name()  
+    random_name = fetch_random_name()
+
+    # Check if the user has a stored name in session
+    stored_name = request.cookies.get('device_name')
+    device_name = stored_name if stored_name else random_name
 
     # Store device info
-    devices[request.sid] = {'ip': client_ip, 'name': random_name}
+    devices[request.sid] = {'ip': client_ip, 'name': device_name}
 
-    print(f"New connection: {random_name} ({client_ip})")
-    
-    # Send device list excluding current device
+    print(f"New connection: {device_name} ({client_ip})")
+
+    # Send updated device list
+    update_device_list()
+
+    # Send the current device its assigned name
+    emit('your_name', {'name': device_name}, room=request.sid)
+
+@socketio.on('rename_device')
+def rename_device(data):
+    new_name = data.get('new_name')
+
+    if request.sid in devices and new_name:
+        devices[request.sid]['name'] = new_name
+        update_device_list()
+        emit('your_name', {'name': new_name}, room=request.sid)
+
+def update_device_list():
     for sid in devices:
         socketio.emit('device_list', {
             'devices': [device['name'] for sid_, device in devices.items() if sid_ != sid]
         }, room=sid)
 
-    # Send the current device its assigned name
-    emit('your_name', {'name': random_name}, room=request.sid)
 
 @socketio.on('disconnect')
 def handle_disconnect():
