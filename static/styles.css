@@ -645,3 +645,14 @@ input:checked + .slider:before {
 .dark-mode .mode-textlight {
     color: white;
 }
+
+.rename-icon {
+    cursor: pointer;
+    margin-left: 10px;
+    color: #007bff;
+    font-size: 16px;
+}
+
+.rename-icon:hover {
+    color: #0056b3;
+}
