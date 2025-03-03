@@ -130,11 +130,28 @@ function hideProgressBar() {
 }
 
 socket.on('your_name', (data) => {
-    const nameDiv = document.createElement('div');
-    nameDiv.innerHTML = `You are known as: <span class="styled-device-name">${data.name}</span>`;
-    nameDiv.classList.add('name-container');
-    document.body.appendChild(nameDiv);
+    let nameDiv = document.getElementById('name-container');
+
+    if (!nameDiv) {
+        nameDiv = document.createElement('div');
+        nameDiv.id = 'name-container';
+        nameDiv.classList.add('name-container');
+        document.body.appendChild(nameDiv);
+    }
+
+    nameDiv.innerHTML = `You are known as: <span id="device-name" class="styled-device-name">${data.name}</span> 
+        <i id="rename-icon" class="fa fa-pencil-alt rename-icon"></i>`;
+
+    setTimeout(() => {
+        document.getElementById('rename-icon').onclick = () => {
+            let newName = prompt("Enter a new name for your device:");
+            if (newName) {
+                socket.emit('rename_device', { new_name: newName });
+            }
+        };
+    }, 100);
 });
+
 
 // Send a message to the selected device
 function sendMessage() {
