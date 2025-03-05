@@ -566,6 +566,32 @@ h1 {
     top: 70px;
 }
 
+#version {
+    text-decoration: underline;
+    font-weight: bold;
+    display: block;
+    color: white;
+    position: absolute;
+    margin-top: 320%;
+    right: -200%;
+}
+
+#version:hover {
+    text-decoration: underline;
+    color: #1d35ad;
+}
+
+#version a {
+    color: white;
+    text-decoration: none;
+}
+
+#version a:hover {
+    color: #1d35ad;
+    text-decoration: underline;
+}
+
+
 body.dark-mode {
     background-color: #121212;
     color: white;
