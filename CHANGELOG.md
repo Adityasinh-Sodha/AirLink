@@ -28,7 +28,7 @@
 <li>Added chunked file transmission to handle large files.</li>
 <li>Added a progress bar to show the upload progress.</li>
 <li>Added Functions to send text messages to selected devices via context menu (right-click).</li>
-<li>Centered, professional-looking message box with smooth animations.</li>
+<li>Added message box with smooth animations.</li>
 </ul>
 <h3>Fixed</h3>
 <ul>
@@ -59,9 +59,9 @@
 <h2>Unreleased - 2025-02-01</h2>
 <h3>Added</h3>
 <ul>
-<li>Added I-Brand Fonts</li>
+<li>Added Fonts For Head</li>
 <li>Added About Us content and its transition effect</li>
-<li>Added links for GitHub, GitLab, and Mail</li>
+<li>Added GitHub and GitLab repository links, and a support email</li>
 <li>Updated ChangeLog location to the About Us page</li>
 </ul>
 <h3>Removed</h3>
@@ -99,9 +99,9 @@
 <h3>Added</h3>
 <ul>
 <li>Added option for Dark and Light themes</li>
-<li>Added I-Brand Fonts</li>
-<li>Added About Us content and its transition effect</li>
-<li>Added changelog</li>
+
+<li>Added About Us page content and its transition effect</li>
+<li>Added option to view latest changelog</li>
 </ul>
 <h3>Removed</h3>
 <ul>
