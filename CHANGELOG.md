@@ -120,15 +120,20 @@
 </ul>
 <h3>Known Issues</h3>
 <ul>
-<li>None reported in the current state.</li>
+<li>ailments alignment issue on mobile phone and small screens</li>
 </ul>
-<h2>Unreleased - 2025-02-25</h2>
-<h3>changes:</h3>
-<h4>1. fixed:</h4>
+<h2>Unreleased - 2025-02-25 & 2025-03-05</h2>
+<h3>1. Added</h4>
+<ul>
+<li>Added Rename functionality (users can now able to rename there devices instead of rely on random names)</li>
+<li>Added New Styles for mobile phones and small devices</li>
+</ul>
+<h3>2. fixed:</h4>
 <ul>
 <li>Fixed the device_list function to not show the current user device name in the list of all active devices</li>
+<li>Fixed all alignment issues on mobile phone and small screen</li>
+<li>Fixed aliments overriding issue</li>
+<li>Fixed ailments collapsing issue</li>
+<li>Fixed zooming and scrolling issues on mobile phones</li>
 </ul>
-<h4>2. known_issues:</h4>
-<ul>
-<li>ailments alignment issue on small screens</li>
-</ul>
+
