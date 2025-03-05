@@ -141,7 +141,7 @@ h1 {
 
 #messagePopup {
     position: fixed;
-    top: 45px;
+    top: 60px;
     right: 20px;
     background: #ffeb3b;
     border: 1px solid #ff9800;
@@ -193,7 +193,6 @@ h1 {
     opacity: 0;
     animation: popupAnimation 0.4s ease-out forwards;
     height: 150px;
-    width: 380px;
     justify-content: center;
     align-items: center;
 }
@@ -681,4 +680,81 @@ input:checked + .slider:before {
 
 .rename-icon:hover {
     color: #0056b3;
+}
+
+/* Styles that apply ONLY on mobile screens (width ≤ 768px) */
+@media screen and (max-width: 768px) {
+    
+    /* Disable scrolling */
+html, body {
+    overflow: hidden;
+    touch-action: none;
+    height: 100%;
+    width: 100%;
+}
+
+/* Prevent zooming on mobile */
+body {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    touch-action: manipulation;
+}
+
+ h1 {
+    font-size: 3.0rem;
+    top: 200px;
+    position: absolute;
+
+ }
+
+ .help {
+    margin-top: 5px;
+  
+ }
+
+ .logo {
+    max-width: 150px; 
+    top: 250px; 
+    position: absolute;
+    
+ }
+
+ #messageBox {
+    height: 150px;
+    width: 310px;
+
+ }
+
+ #messageBox button {
+    gap: 40px;
+    left: 180px;
+
+ }
+
+ #aboutUsButton {
+    top: 22px;
+    right: 15px;
+    
+ }
+
+ .name-container {
+    position: absolute;
+    text-align: center;
+    top: 610px;
+    
+ }
+
+ .device-list {
+    top: 280px;
+    position: absolute;
+ 
+ }
+
+ .signal-animation {
+    top: 470px;
+    
+ }
+
 }
