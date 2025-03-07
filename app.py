@@ -21,11 +21,12 @@ def index():
 
 def fetch_random_name():
     try:
+        # Use locale 'us' for English names
         response = requests.get("https://randomuser.me/api/?nat=us")
         if response.status_code == 200:
             data = response.json()
             first_name = data['results'][0]['name']['first']
-            last_name = data['results'][0]['name']['last']
+            last_name = data['results'][0]['name']['last']  
             return f"{first_name} {last_name}"
         else:
             # Fallback to a default name if API fails
@@ -68,6 +69,23 @@ def update_device_list():
         socketio.emit('device_list', {
             'devices': [device['name'] for sid_, device in devices.items() if sid_ != sid]
         }, room=sid)
+
+@socketio.on('connect_with_name')
+def handle_connect_with_name(data):
+    client_ip = request.environ.get('REMOTE_ADDR', request.remote_addr)
+    stored_name = data.get('saved_name')  # Get stored name from client
+    device_name = stored_name if stored_name else fetch_random_name()
+
+    # Store device info
+    devices[request.sid] = {'ip': client_ip, 'name': device_name}
+
+    print(f"New connection: {device_name} ({client_ip})")
+
+    # Send updated device list
+    update_device_list()
+
+    # Send the current device its assigned name
+    emit('your_name', {'name': device_name}, room=request.sid)
 
 
 @socketio.on('disconnect')
