@@ -123,13 +123,13 @@
 <li>ailments alignment issue on mobile phone and small screens</li>
 </ul>
 <h2>Unreleased - 2025-02-25 & 2025-03-05 & 2025-03-07</h2>
-<h3>1. Added</h4>
+<h3>Added</h4>
 <ul>
 <li>Added Rename functionality (users can now able to rename there devices instead of rely on random names)</li>
 <li>Added New Styles for mobile phones and small devices</li>
 <li>Added storage persistence for device names</li>
 </ul>
-<h3>2. fixed:</h4>
+<h3>Fixed:</h4>
 <ul>
 <li>Fixed the device_list function to not show the current user device name in the list of all active devices</li>
 <li>Fixed all alignment issues on mobile phone and small screen</li>
