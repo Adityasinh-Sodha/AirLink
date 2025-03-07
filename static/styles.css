@@ -560,8 +560,7 @@ h1 {
     display: block;
     color: white;
     position: absolute;
-    margin-top: 320%;
-    right: -200%;
+    margin-top: 145%;
 }
 
 #version:hover {
@@ -765,6 +764,12 @@ body {
 #changelogSection {
     max-width: 300px;
     max-height: 550px;
+}
+
+#version {
+    justify-content: center;
+    right: 65px;
+    margin-top: 400px;
 }
 
 }
