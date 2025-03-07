@@ -111,7 +111,6 @@
 <h3>Fixed</h3>
 <ul>
 <li>Fixed all alignment issues. </li>
-<li>Fixed alignment issues on mobile screens.</li>
 <li>Fixed Changelog Expansion issue</li>
 <li>Fixed About Us page and its content</li>
 <li>Fixed all items to adjust with dark theme</li>
@@ -138,4 +137,29 @@
 <li>Fixed zooming and scrolling issues on mobile phones</li>
 <li>Fixed aboutus section overlay and it's animations to adjust with mobile phones</li>
 </ul>
+<h2><a href="https://github.com/Adityasinh-Sodha/AirLink/releases/tag/Build-03">Build 03 - Stable - 2025-03-07</a></h2>
+<h3>Added</h3>
 
+<ul>
+<li>Added Rename functionality <ul>
+<li>users can now able to rename there devices instead of rely on random names</li>
+</ul>
+</li>
+<li>Added New Styles for mobile phones and small devices</li>
+<li>Added storage persistence for device names</li>
+<li>Added version names in aboutus page</li>
+</ul>
+
+<h3>Fixed</h3>
+<ul>
+<li>Fixed the device_list function to not show the current user device name in the list of all devices</li>
+<li>Fixed alignment issues on mobile screens.</li>
+<li>Fixed aliments overriding issue</li>
+<li>Fixed ailments collapsing issue</li>
+<li>Fixed zooming and scrolling issues on mobile phones</li>
+<li>Fixed aboutus section's overlay and it's animations to adjust with mobile phones</li>
+</ul>
+<h3>Known Issues</h3>
+<ul>
+<li>None reported</li>
+</ul>
