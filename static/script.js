@@ -1,6 +1,6 @@
 const socket = io.connect();
 let selectedDevice = null;
-let receivedFile = []; // Store file chunks as an array of ArrayBuffers
+let receivedFile = [];
 
 // Update the device list
 socket.on('device_list', (data) => {
@@ -9,7 +9,7 @@ socket.on('device_list', (data) => {
 
     if (data.devices.length === 0) {
         console.log("No other devices available.");
-        return; // Don't add anything to the list
+        return; 
     }
 
     data.devices.forEach((device) => {
