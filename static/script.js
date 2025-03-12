@@ -139,26 +139,25 @@ socket.on('your_name', (data) => {
         document.body.appendChild(nameDiv);
     }
 
-    nameDiv.innerHTML = `You are known as: <span id="device-name" class="styled-device-name">${data.name}</span> 
+    // Retrieve saved name from localStorage if available
+    let savedName = localStorage.getItem('saved_name') || data.name;
+
+    nameDiv.innerHTML = `You are known as: <span id="device-name" class="styled-device-name">${savedName}</span> 
         <i id="rename-icon" class="fa fa-pencil-alt rename-icon"></i>`;
 
-    // Save the name in localStorage for persistence
-    localStorage.setItem('saved_name', data.name);
+    document.getElementById('rename-icon').onclick = () => {
+        let newName = prompt("Enter a new name for your device:");
+        if (newName) {
+            localStorage.setItem('saved_name', newName); // Save locally
+            socket.emit('rename_device', { new_name: newName });
 
-    setTimeout(() => {
-        document.getElementById('rename-icon').onclick = () => {
-            let newName = prompt("Enter a new name for your device:");
-            if (newName) {
-                localStorage.setItem('saved_name', newName); // Save locally
-                socket.emit('rename_device', { new_name: newName });
-            }
-        };
-    }, 100);
+            // Update the UI immediately
+            document.getElementById('device-name').textContent = newName;
+        }
+    };
 });
 
 socket.emit('connect_with_name', { saved_name: localStorage.getItem('saved_name') || null });
-
-
 
 // Send a message to the selected device
 function sendMessage() {
