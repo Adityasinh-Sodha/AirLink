@@ -6,6 +6,7 @@ import socket
 from flask import Flask, render_template, request, jsonify
 from flask_socketio import SocketIO, emit
 import requests
+import random
 
 app = Flask(__name__)
 socketio = SocketIO(app)
@@ -19,21 +20,24 @@ local_ip = socket.gethostbyname(hostname)
 def index():
     return render_template('index.html', local_ip=local_ip)
 
+
 def fetch_random_name():
     try:
-        # Use locale 'us' for English names
-        response = requests.get("https://randomuser.me/api/?nat=us")
+        # Check if the user has internet access
+        response = requests.get("https://randomuser.me/api/?nat=us", timeout=2)  # 2-second timeout
         if response.status_code == 200:
             data = response.json()
             first_name = data['results'][0]['name']['first']
-            last_name = data['results'][0]['name']['last']  
+            last_name = data['results'][0]['name']['last']
             return f"{first_name} {last_name}"
-        else:
-            # Fallback to a default name if API fails
-            return "Guest User"
-    except Exception as e:
-        print(f"Error fetching random name: {e}")
-        return "Guest User"
+    except Exception:
+        # If offline or API fails, generate a name instantly
+        fallback_names = [
+            "Fast Cheetah", "Silver Falcon", "Crimson Wolf", "Blue Shark",
+            "Iron Tiger", "Stealth Panther", "Golden Eagle", "Storm Bear"
+        ]
+        return random.choice(fallback_names)
+
 
 @socketio.on('connect')
 def handle_connect():
