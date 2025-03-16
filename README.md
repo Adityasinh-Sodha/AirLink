@@ -77,4 +77,4 @@ Developed by **Adityasinh**.
 
 ---
 
-Experience the ease of sharing files with **AirLink**. Happy Sharing!
+Experience the ease of sharing files with **AirLink Network**. Happy Sharing!
