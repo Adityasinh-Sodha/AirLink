@@ -49,6 +49,7 @@ h1 {
     top: 220px;
     z-index: 900;
     display: flex;
+    letter-spacing: 2px;
 }
 
 .device-list {
