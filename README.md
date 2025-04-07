@@ -62,10 +62,11 @@ AirLink/
 
 ## Technologies Used
 - **Frontend**: HTML, CSS, JavaScript
-- **Backend**: Python (WSGI)
+- **Backend**: Python (WSGI) 
 - **Real-time Communication**: Socket.IO
 
-![airlink](https://github.com/user-attachments/assets/cdb62b30-2c83-40b5-b51a-ea358abb933c)
+![airlink 2](https://github.com/user-attachments/assets/39a423b5-e273-4fe8-868a-f8ab7dc1c0db)
+
 
 <!-- ## AirLink is live on: 
 - [**Railway**](https://airlink.up.railway.app/) 
