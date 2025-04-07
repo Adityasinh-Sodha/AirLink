@@ -331,23 +331,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.getElementById("aboutUsButton").addEventListener("click", function (event) {
     let overlay = document.getElementById("aboutUsOverlay");
-    let button = event.target; 
+    let button = event.target;
     let content = document.getElementById("aboutUsContent");
 
-    // Toggle button color and state
+    // Toggle active class only — no inline styles
     if (button.classList.contains("active")) {
         button.classList.remove("active");
-        button.style.color = "black"; 
-        button.style.borderColor = "black";
-
         overlay.classList.remove("active");
         setTimeout(() => {
-            content.classList.remove("show"); 
-        }, 0); 
+            content.classList.remove("show");
+        }, 0);
     } else {
         button.classList.add("active");
-        button.style.color = "white"; 
-        button.style.borderColor = "white"; 
 
         let rect = button.getBoundingClientRect();
         let centerX = rect.left + rect.width / 2;
@@ -358,10 +353,11 @@ document.getElementById("aboutUsButton").addEventListener("click", function (eve
         overlay.classList.add("active");
 
         setTimeout(() => {
-            content.classList.add("show"); 
+            content.classList.add("show");
         }, 600);
     }
 });
+        
 
 const toggleSwitch = document.getElementById("theme-toggle");
 
