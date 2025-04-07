@@ -50,7 +50,8 @@ h1 {
     z-index: 900;
     display: flex;
     letter-spacing: 2px;
-}
+} 
+
 
 .device-list {
     display: flex;
@@ -772,6 +773,11 @@ body {
     justify-content: center;
     right: 65px;
     margin-top: 400px;
+}
+
+#aboutUsButton:hover {
+    border-color: inherit; 
+    color: inherit; 
 }
 
 }
