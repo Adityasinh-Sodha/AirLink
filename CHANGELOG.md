@@ -166,3 +166,8 @@
 <h2>Unreleased - 2025-03-12</h2>
 <h3>Fixed</h3><ul>
 <li>Fixed Error handling of the randomuser api</li>
+<h2>Unreleased - 2025-04-07</h2>
+<h3>Fixed</h3><ul>
+<li>Fixed the aboutus button to trigger perfectly and works with light and dark mode</li>
+<li>Fixed some buttons issues</li>
+
