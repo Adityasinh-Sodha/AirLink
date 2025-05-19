@@ -73,7 +73,7 @@ AirLink/
 - [**Render**](https://airlink-ma0q.onrender.com/) 
 -->
 ## License
-This project is licensed under the [MIT License](https://github.com/Adityasinh-Sodha/AirLink/blob/main/LICENSE).
+This project is licensed under the [GPL 3.0 - License](https://github.com/Adityasinh-Sodha/AirLink/blob/main/LICENSE).
 ## Author
 Developed by **Adityasinh**.
 
