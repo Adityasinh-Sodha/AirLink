@@ -32,33 +32,7 @@ AirLink is a streamlined and user-friendly web-based file-sharing platform desig
    python3 app.py
    ```
 4. Open your web browser and go to `http://<local_ip>:5000`.
-<!--
-### Folder Structure
-```
-AirLink/
-├── static/
-|   ├── back.png
-│   ├── styles.css
-│   ├── script.js
-│   ├── socket.io.min.js
-│   ├── assets/
-|       ├── android-chrome-192x192.png
-|       ├── apple-touch-icon.png
-|       ├── favicon-16x16.png
-|       ├── favicon-32x32.png
-|       ├── favicon.ico
-|       ├── favicon.png
-|       ├── ibrand.otf
-|       ├── logo.png
-|       ├── cg.png
-|       ├── github.png
-|       ├── gitlab.png
-|       ├── site.webmanifest
-├── templates/
-│   ├── index.html
-├── app.py
-```
--->
+
 
 ## Technologies Used
 - **Frontend**: HTML, CSS, JavaScript
